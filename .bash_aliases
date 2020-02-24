@@ -1,4 +1,5 @@
 alias ll='ls -la'
+alias l='ls -la'
 
 alias gs='git status'
 alias ga='git add'
