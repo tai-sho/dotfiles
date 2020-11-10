@@ -1,0 +1,12 @@
+[user]
+    name  = ShoheiTai
+    email = shouhei.tai@gmail.com
+[color]
+    ui = true
+[push]
+    default = current
+[core]
+    autocrlf = false
+    ignorecase = false
+[include]
+	path = ~/.gitconfig_shared
