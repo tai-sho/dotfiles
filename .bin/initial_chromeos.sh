@@ -1,3 +1,5 @@
+sudo apt update
+sudo apt upgrade
 sudo apt -y install task-japanese locales-all
 sudo localectl set-locale LANG=ja_JP.UTF-8 LANGUAGE="ja_JP:ja"
 source /etc/default/locale
@@ -21,6 +23,16 @@ cd $DIR
 cd ..
 rm -r $DIR
 rm jetbrains-toolbox.tar.gz
+
+# install Docker
+sudo get install apt-transport-https ca-certificates curl gnupg2 software-properties-common
+sudo curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg | sudo apt-key add -
+sudo apt-key fingerprint 0EBFCD88
+sudo add-apt-repository    "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") \
+     $(lsb_release -cs) stable"
+sudo apt-get install docker-ce
+sudo curl -L https://github.com/docker/compose/releases/download/1.27.4/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
 
 # https://doc.rust-lang.org/cargo/getting-started/installation.html
 #curl https://sh.rustup.rs -sSf | sh
