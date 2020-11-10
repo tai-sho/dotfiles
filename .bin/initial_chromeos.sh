@@ -25,7 +25,7 @@ rm -r $DIR
 rm jetbrains-toolbox.tar.gz
 
 # install Docker
-sudo get install apt-transport-https ca-certificates curl gnupg2 software-properties-common
+sudo apt install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common
 sudo curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg | sudo apt-key add -
 sudo apt-key fingerprint 0EBFCD88
 sudo add-apt-repository    "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") \
@@ -33,6 +33,9 @@ sudo add-apt-repository    "deb [arch=amd64] https://download.docker.com/linux/$
 sudo apt-get install docker-ce
 sudo curl -L https://github.com/docker/compose/releases/download/1.27.4/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
 
 # https://doc.rust-lang.org/cargo/getting-started/installation.html
 #curl https://sh.rustup.rs -sSf | sh
