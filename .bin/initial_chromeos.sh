@@ -38,9 +38,5 @@ sudo usermod -aG docker $USER
 newgrp docker
 
 # https://doc.rust-lang.org/cargo/getting-started/installation.html
-#curl https://sh.rustup.rs -sSf | sh
-#source $HOME/.cargo/env
-#cargo install exa
-
-#sudo apt install fd-find
-
+curl -fsSL https://starship.rs/install.sh | sudo bash
+echo 'eval "$(starship init bash)"' >> ~/.bashrc
