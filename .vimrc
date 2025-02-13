@@ -122,8 +122,6 @@ if has('unix') && !has('gui_running')
   elseif s:uname =~? "freebsd"
     set term=builtin_cons25
   elseif s:uname =~? "Darwin"
-    set term=beos-ansi
-  else
     set term=builtin_xterm
   endif
   unlet s:uname
